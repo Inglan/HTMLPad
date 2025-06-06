@@ -5,8 +5,19 @@
 	import Play from 'lucide-svelte/icons/play';
 	import Reload from 'lucide-svelte/icons/refresh-cw';
 	import { mode, toggleMode } from 'mode-watcher';
+	import Monaco from 'svelte-monaco';
 
 	let direction = <'horizontal' | 'vertical'>$state('horizontal');
+	let code = $state(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+</body>
+</html>`);
 </script>
 
 <Resizable.PaneGroup class="h-screen w-screen" {direction}>
@@ -41,7 +52,14 @@
 					<Play />
 				</Button>
 			</Menubar.Root>
-			<div id="monaco" class="h-full w-full rounded"></div>
+			<div class="h-full w-full overflow-hidden rounded-lg">
+				<Monaco
+					options={{ language: 'html', automaticLayout: true }}
+					theme="vs-dark"
+					on:ready={(event) => console.log(event.detail)}
+					bind:value={code}
+				/>
+			</div>
 		</div>
 	</Resizable.Pane>
 	<Resizable.Handle />
