@@ -4,8 +4,9 @@
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 	import Play from 'lucide-svelte/icons/play';
 	import Reload from 'lucide-svelte/icons/refresh-cw';
-	import { mode, toggleMode } from 'mode-watcher';
+	import { mode, theme, toggleMode } from 'mode-watcher';
 	import Monaco from 'svelte-monaco';
+	import { nativeThemes } from 'svelte-monaco';
 
 	let direction = <'horizontal' | 'vertical'>$state('horizontal');
 	let code = $state(`<!DOCTYPE html>
@@ -53,12 +54,14 @@
 				</Button>
 			</Menubar.Root>
 			<div class="h-full w-full overflow-hidden rounded-lg">
-				<Monaco
-					options={{ language: 'html', automaticLayout: true }}
-					theme="vs-dark"
-					on:ready={(event) => console.log(event.detail)}
-					bind:value={code}
-				/>
+				{#key $mode}
+					<Monaco
+						options={{ language: 'html', automaticLayout: true }}
+						theme={$mode === 'light' ? 'vs-light' : 'vs-dark'}
+						on:ready={(event) => console.log(event.detail)}
+						bind:value={code}
+					/>
+				{/key}
 			</div>
 		</div>
 	</Resizable.Pane>
