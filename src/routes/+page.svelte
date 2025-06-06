@@ -2,6 +2,8 @@
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as Resizable from '$lib/components/ui/resizable/index.js';
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
+	import Play from 'lucide-svelte/icons/play';
+	import Reload from 'lucide-svelte/icons/refresh-cw';
 
 	let direction = <'horizontal' | 'vertical'>$state('horizontal');
 </script>
@@ -27,7 +29,13 @@
 						</Menubar.Item>
 					</Menubar.Content>
 				</Menubar.Menu>
-				<Button variant="ghost" size="icon"></Button>
+				<div class="grow"></div>
+				<Button variant="ghost" size="icon">
+					<Reload />
+				</Button>
+				<Button variant="ghost" size="icon">
+					<Play />
+				</Button>
 			</Menubar.Root>
 		</div>
 	</Resizable.Pane>
