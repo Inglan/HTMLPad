@@ -11,7 +11,7 @@
 
 <Resizable.PaneGroup class="h-screen w-screen" {direction}>
 	<Resizable.Pane class="h-full w-full">
-		<div class="flex h-full w-full flex-col p-2">
+		<div class="flex h-full w-full flex-col gap-3 p-3">
 			<Menubar.Root class="h-fit">
 				<Menubar.Menu>
 					<Menubar.Trigger>File</Menubar.Trigger>
@@ -41,6 +41,7 @@
 					<Play />
 				</Button>
 			</Menubar.Root>
+			<div id="monaco" class="h-full w-full rounded"></div>
 		</div>
 	</Resizable.Pane>
 	<Resizable.Handle />
