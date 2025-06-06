@@ -4,6 +4,7 @@
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 	import Play from 'lucide-svelte/icons/play';
 	import Reload from 'lucide-svelte/icons/refresh-cw';
+	import { mode, toggleMode } from 'mode-watcher';
 
 	let direction = <'horizontal' | 'vertical'>$state('horizontal');
 </script>
@@ -26,6 +27,9 @@
 							onclick={() => (direction = direction === 'horizontal' ? 'vertical' : 'horizontal')}
 						>
 							Switch to {direction === 'horizontal' ? 'vertical' : 'horizontal'} split
+						</Menubar.Item>
+						<Menubar.Item onclick={toggleMode}>
+							Switch to {$mode === 'light' ? 'dark' : 'light'} mode
 						</Menubar.Item>
 					</Menubar.Content>
 				</Menubar.Menu>
