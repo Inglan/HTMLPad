@@ -5,6 +5,7 @@
 	import Play from 'lucide-svelte/icons/play';
 	import Reload from 'lucide-svelte/icons/refresh-cw';
 	import Monaco from 'svelte-monaco';
+	import { onMount } from 'svelte';
 
 	let direction = <'horizontal' | 'vertical'>$state('horizontal');
 	let autoRun = $state(true);
@@ -18,6 +19,13 @@
 
 </body>
 </html>`);
+
+	function run() {
+		const outputframe = document.getElementById('output') as HTMLIFrameElement;
+		if (outputframe) {
+			outputframe.srcdoc = code;
+		}
+	}
 </script>
 
 <Resizable.PaneGroup class="h-screen w-screen" {direction}>
@@ -45,10 +53,7 @@
 					</Menubar.Content>
 				</Menubar.Menu>
 				<div class="grow"></div>
-				<Button variant="ghost" size="icon">
-					<Reload />
-				</Button>
-				<Button variant="ghost" size="icon">
+				<Button variant="ghost" size="icon" onclick={run}>
 					<Play />
 				</Button>
 			</Menubar.Root>
