@@ -63,5 +63,7 @@
 		</div>
 	</Resizable.Pane>
 	<Resizable.Handle />
-	<Resizable.Pane class="h-full w-full">Output will be here</Resizable.Pane>
+	<Resizable.Pane class="h-full w-full">
+		<iframe title="Output" class="h-full w-full" id="output" frameborder="0"></iframe>
+	</Resizable.Pane>
 </Resizable.PaneGroup>
