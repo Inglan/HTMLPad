@@ -57,7 +57,7 @@
 				{#key $mode}
 					<Monaco
 						options={{ language: 'html', automaticLayout: true }}
-						theme={$mode === 'light' ? 'vs-light' : 'vs-dark'}
+						theme="vs-dark"
 						on:ready={(event) => console.log(event.detail)}
 						bind:value={code}
 					/>
