@@ -26,6 +26,15 @@
 			outputframe.srcdoc = code;
 		}
 	}
+
+	$effect(() => {
+		if (autoRun) {
+			const outputframe = document.getElementById('output') as HTMLIFrameElement;
+			if (outputframe) {
+				outputframe.srcdoc = code;
+			}
+		}
+	});
 </script>
 
 <Resizable.PaneGroup class="h-screen w-screen" {direction}>
