@@ -4,5 +4,9 @@
 	let { children } = $props();
 </script>
 
+<svelte:head>
+	<title>HTMLPad</title>
+</svelte:head>
+
 <ModeWatcher defaultMode="dark" />
 {@render children()}
