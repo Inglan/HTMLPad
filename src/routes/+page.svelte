@@ -20,6 +20,24 @@
 </body>
 </html>`);
 
+	onMount(() => {
+		const outputframe = document.getElementById('output') as HTMLIFrameElement;
+		if (outputframe) {
+			outputframe.srcdoc = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background-color: oklch(0.205 0 0); color: white; font-family: sans-serif;">
+<span>Output will be shown here</span>
+</body>
+</html>
+			`;
+		}
+	});
+
 	function run() {
 		const outputframe = document.getElementById('output') as HTMLIFrameElement;
 		if (outputframe) {
