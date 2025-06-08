@@ -7,6 +7,7 @@
 	import Monaco from 'svelte-monaco';
 
 	let direction = <'horizontal' | 'vertical'>$state('horizontal');
+	let autoRun = $state(true);
 	let code = $state(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,12 +32,15 @@
 					</Menubar.Content>
 				</Menubar.Menu>
 				<Menubar.Menu>
-					<Menubar.Trigger>View</Menubar.Trigger>
+					<Menubar.Trigger>Settings</Menubar.Trigger>
 					<Menubar.Content>
 						<Menubar.Item
 							onclick={() => (direction = direction === 'horizontal' ? 'vertical' : 'horizontal')}
 						>
 							Switch to {direction === 'horizontal' ? 'vertical' : 'horizontal'} split
+						</Menubar.Item>
+						<Menubar.Item onclick={() => (autoRun = !autoRun)}>
+							{autoRun ? 'Disable' : 'Enable'} autorun
 						</Menubar.Item>
 					</Menubar.Content>
 				</Menubar.Menu>
