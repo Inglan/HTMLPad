@@ -4,9 +4,7 @@
 	import * as Menubar from '$lib/components/ui/menubar/index.js';
 	import Play from 'lucide-svelte/icons/play';
 	import Reload from 'lucide-svelte/icons/refresh-cw';
-	import { mode, theme, toggleMode } from 'mode-watcher';
 	import Monaco from 'svelte-monaco';
-	import { nativeThemes } from 'svelte-monaco';
 
 	let direction = <'horizontal' | 'vertical'>$state('horizontal');
 	let code = $state(`<!DOCTYPE html>
@@ -40,9 +38,6 @@
 						>
 							Switch to {direction === 'horizontal' ? 'vertical' : 'horizontal'} split
 						</Menubar.Item>
-						<Menubar.Item onclick={toggleMode}>
-							Switch to {$mode === 'light' ? 'dark' : 'light'} mode
-						</Menubar.Item>
 					</Menubar.Content>
 				</Menubar.Menu>
 				<div class="grow"></div>
@@ -54,14 +49,12 @@
 				</Button>
 			</Menubar.Root>
 			<div class="h-full w-full overflow-hidden rounded-lg">
-				{#key $mode}
-					<Monaco
-						options={{ language: 'html', automaticLayout: true }}
-						theme="vs-dark"
-						on:ready={(event) => console.log(event.detail)}
-						bind:value={code}
-					/>
-				{/key}
+				<Monaco
+					options={{ language: 'html', automaticLayout: true }}
+					theme="vs-dark"
+					on:ready={(event) => console.log(event.detail)}
+					bind:value={code}
+				/>
 			</div>
 		</div>
 	</Resizable.Pane>
