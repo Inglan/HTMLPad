@@ -8,7 +8,7 @@
 	import { onMount } from 'svelte';
 
 	let direction = <'horizontal' | 'vertical'>$state('horizontal');
-	let autoRun = $state(true);
+	let autoRun = $state(false);
 	let code = $state(`<!DOCTYPE html>
 <html lang="en">
 <head>
