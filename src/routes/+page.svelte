@@ -59,13 +59,13 @@
 	<Resizable.Pane class="h-full w-full">
 		<div class="flex h-full w-full flex-col gap-3 p-3">
 			<Menubar.Root class="h-fit">
-				<Menubar.Menu>
+				<!-- <Menubar.Menu>
 					<Menubar.Trigger>File</Menubar.Trigger>
 					<Menubar.Content>
 						<Menubar.Item>Save</Menubar.Item>
 						<Menubar.Item>Open</Menubar.Item>
 					</Menubar.Content>
-				</Menubar.Menu>
+				</Menubar.Menu> -->
 				<Menubar.Menu>
 					<Menubar.Trigger>Settings</Menubar.Trigger>
 					<Menubar.Content>
